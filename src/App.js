@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Home from './Components/Home/Home'
-import TodoContainer from './Components/Todo/TodoContainer';
-import AddTodoForm from './Components/Todo/AddTodoForm/AddTodoForm';
+// import TodoContainer from './Components/Todo/TodoContainer';
+// import AddTodoForm from './Components/Todo/AddTodoForm/AddTodoForm';
 
 // css
 import './App.css'
@@ -21,8 +21,9 @@ class App extends Component {
     return(
       <div className="App">        
         <Home />
-        <AddTodoForm />
-        <TodoContainer />
+        {/* <AddTodoForm />
+        <TodoContainer /> */}
+
       </div>
     )
   }
