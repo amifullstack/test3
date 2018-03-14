@@ -5,61 +5,41 @@ class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data:[
-        {
-            id: '123'
-        },
-        {
-          id: '234'
-
-        }
-      ]
+      data:[]
     }
-    }
-  
-onClickStrike(e) {
-  
-  let newObj = { id:e, active: false }
-  
-  this.setState({ data: [...this.state.data, newObj] })  
-}
-  render() {
-    const data = this.props.data;  
-    console.log(data)  
-    let arrayData = this.state.data;
-    // for(const a of arrayData) {
-    //   console.log(a.id)
-    // }
-    // console.log(arrayData.id)
-    
-
-    let todoNodes = this.props.data.map(todo => {      
-      return (
-        <div key={todo._id} className="list-group">
-
-          { todo._id === arrayData.id  ?
-            <div key={todo._id} className="list-group">
-            <strike>
-            <h4>{todo.title}</h4><br/>
-            <p>{todo.description}</p>
-            </strike>            
-            </div>
-            : 
-            <div key={todo._id} className="list-group">              
-              <h4>{todo.title}</h4><br/>
-              <p>{todo.description}</p>
-          </div>}
-          <button onClick={() => this.onClickStrike(todo._id)}>X</button>
-        </div>
-      )
-    })
-    return(
-      <div>
-        <h1>All Todos</h1>        
-        {todoNodes}
-      </div>
-    )
   }
+
+
+
+onDone(id) { 
+  this.setState({ data: id})
+  
+}
+render () {
+  const propsData = this.props.data;  
+
+  // console.log(propsData)
+  console.log(this.state.data)
+
+  const returnData = propsData.map(e => {
+
+    // login 
+    
+    <div key={e._id}>
+         <li>Title: {e.title}</li>
+          <li>Description: {e.description}</li>          
+          <button onClick={() => this.onDone(e._id)}>Done</button>
+      </div>
+
+  })
+  return(
+    <div>     
+      <ul>
+        {returnData}        
+      </ul>
+    </div>
+  )
+}
 }
 
 export default TodoList;
