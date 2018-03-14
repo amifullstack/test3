@@ -29,7 +29,7 @@ class Home extends Component {
 
   componentDidMount() {
     this.loadTodoFromServer();
-    setInterval(this.loadTodoFromServer, 2000);
+    // setInterval(this.loadTodoFromServer, 2000);
   }
 
   // Axios insert/post
